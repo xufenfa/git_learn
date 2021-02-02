@@ -1,0 +1,31 @@
+git命令记录文档
+git cat-file -t 9bcc4（哈希值）  --查看是什么类型
+git cat-file -p 9bcc4（哈希值）  ---查看是什么内容
+git checkout brand --切换分支
+git add 添加版本追踪
+git commit -m'' 提交一次记录
+gitk -----打开图形界面
+gitk  --all ----打开图形界面,显示全部内容
+find ./git/objects -type f
+git checkout -b new_brandname（新建的分支名） old_brandname(基于哪条分支)  ----新建分支,并切换到新建分支
+git brand -d 分支名  ----删除一条指定分支（删除时若提示是否确定可控风险要删除，将小d改为大D继续执行即可删除）
+git diff commit的哈希值 另一个commit的哈希值 比较两次不同提交差异
+git diff HEAD HEAD^1 ---比较HEAD所在commit和它父亲的差异常（^1等同于~1，^1等同于~2）
+git diff HEAD HEAD^1^1  ---比较HEAD所在commit和它父亲的父亲的差异
+----------
+
+git三个关键对象：commit、tree、 blob
+
+分离头指针：指的是没有基于某个brand做修改，没有和某个分支绑在一起
+HEAD:可以指代某条分支，也可以指代某次提交
+
+--2021-02-03
+回退到上一次的提交:git reset --hard HEAD^
+回退到前10次的提及:git reset --hard HEAD~10
+回退到某一次的提交：git reset --hard [commi id]
+
+工作区和暂存区的比较：git diff
+	git diff readme.txgt #工作区和暂存区的比较
+	git diff --cached readme.txt #暂存区和分支的比较
+
+查看git的历史命令：git reflog
